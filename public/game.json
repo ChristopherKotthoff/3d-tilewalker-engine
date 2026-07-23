@@ -1,0 +1,110 @@
+{
+  "title": "A Walk Through Zürich",
+  "intro": "A small showcase for the Maps Walker engine. You walk a character through Zürich, streamed live as real 3D tiles, reach the glowing beacons, and catch a plane up to a viewpoint over the city. Each stage exercises a different engine feature; open public/game.json to see how it's put together. Progress saves in the browser.",
+  "introImage": "/placeholder.svg",
+  "ending": "That's the whole tour: walking, a companion who waits for you, a collectible, a rhythm minigame, a drivable car, a night scene, and a plane that teleports you. All of it comes from one JSON file. Fork it, drop in your own city and story, and press P any time to jump around. Thanks for playing.",
+  "endingImage": "/placeholder.svg",
+  "settings": {
+    "triggerRadius": 12,
+    "moveSpeed": 6,
+    "errorTarget": 24,
+    "heightOffset": 0
+  },
+  "sounds": [
+    { "id": "wind", "src": "/audio/wind.mp3", "volume": 0.35, "fade": 3, "loop": true },
+    { "id": "beacon-hum", "src": "/audio/beacon.mp3", "follow": "beacon", "volume": 0.5, "refDistance": 8, "maxDistance": 70, "fade": 1.2 },
+    { "id": "birdsong", "src": "/audio/birdsong.mp3", "stages": [2, 5], "volume": 0.3, "fade": 2.5 },
+    { "id": "boarding", "src": "/audio/boarding.mp3", "trigger": "arrival", "stages": [4], "volume": 0.6 }
+  ],
+  "quest": [
+    {
+      "id": 1,
+      "chapter": "Zürich · 1 / 6",
+      "clueTitle": "Out of the station",
+      "clueBody": "You arrive at Zürich Hauptbahnhof, and your companion tags along. Head down the Bahnhofstrasse to Paradeplatz, in the middle of the banking district.",
+      "spawn": { "lat": 47.376987, "lng": 8.539975 },
+      "target": { "lat": 47.36989102276184, "lng": 8.539239863030614 },
+      "action": "show_clue",
+      "companion": "follow",
+      "glowColor": "#5fd0ff",
+      "silly": 1,
+      "arrivalTitle": "Paradeplatz",
+      "arrivalBody": "Trams cross in every direction and the chocolatiers are just around the corner. This stage covered the basics: a spawn point, a companion that follows you, and a plain clue that pays off with an arrival letter."
+    },
+    {
+      "id": 2,
+      "chapter": "Zürich · 2 / 6",
+      "clueTitle": "Meet at the Grossmünster",
+      "clueBody": "Your companion runs ahead to wait by the twin towers of the Grossmünster, across the river. Walk over and meet them there.",
+      "clueImage": "/placeholder.svg",
+      "target": { "lat": 47.37038609900347, "lng": 8.543982933761365 },
+      "action": "show_clue",
+      "companion": { "lat": 47.37038609900347, "lng": 8.543982933761365 },
+      "companionClip": "Wave_One_Hand",
+      "glowColor": "#7dff9b",
+      "grantItem": { "icon": "🍫", "label": "Swiss Chocolate" },
+      "arrivalTitle": "Reunited at the towers",
+      "arrivalBody": "Your companion waves you over. This stage parked the companion at a fixed point with a forced wave animation, showed an image in the clue card, and granted a collectible to your HUD.",
+      "arrivalImage": "/placeholder.svg"
+    },
+    {
+      "id": 3,
+      "chapter": "Zürich · 3 / 6",
+      "clueTitle": "Down to the Limmat",
+      "clueBody": "Follow the river a short way to the water's edge. A punt is waiting there; time your strokes to pole down the Limmat.",
+      "target": { "lat": 47.37118, "lng": 8.54200 },
+      "action": "show_clue",
+      "minigame": "punting",
+      "companion": "follow",
+      "glowColor": "#5fd0ff",
+      "silly": 1,
+      "arrivalTitle": "Down the river",
+      "arrivalBody": "Water, sunlight, and a wobbly pole. Reaching this beacon launched a minigame in a modal before the arrival letter. Win it or skip it; the story continues either way."
+    },
+    {
+      "id": 4,
+      "chapter": "Zürich · 4 / 6",
+      "clueTitle": "Night drive to the Lindenhof",
+      "clueBody": "Dusk has fallen. A car is parked nearby; press C to summon one if you don't see it, then E to get in. Drive up to the Lindenhof terrace above the old town.",
+      "target": { "lat": 47.37297854696841, "lng": 8.540708217099356 },
+      "action": "show_clue",
+      "night": true,
+      "vehicle": "car",
+      "companion": "follow",
+      "triggerRadius": 16,
+      "glowColor": "#c77dff",
+      "arrivalTitle": "The Lindenhof by night",
+      "arrivalBody": "Rooftops and the floodlit Grossmünster below. This stage rendered at night, mounted a drivable car, and used a wider per-stage trigger radius."
+    },
+    {
+      "id": 5,
+      "chapter": "Zürich · 5 / 6",
+      "clueTitle": "Board the plane",
+      "clueBody": "Down to Bürkliplatz on the lake. A little plane is waiting on the water (don't ask). Walk to it to board and fly up to the Uetliberg.",
+      "target": { "lat": 47.36636907170401, "lng": 8.540648317826667 },
+      "action": "teleport",
+      "vehicle": "plane",
+      "teleportTo": { "lat": 47.34955159003357, "lng": 8.49160716856796 },
+      "companion": "hidden",
+      "glowStyle": "teleport",
+      "glowColor": "#c77dff",
+      "travelNote": "Wheels up over the lake, then a very short hop to the mountain.",
+      "arrivalTitle": "Uetliberg",
+      "arrivalBody": "The house mountain of Zürich, ~870 m up. This stage was a teleport: reaching the boarding beacon (with a plane parked on it and the companion hidden) faded to black, re-centered the world on the destination, and played a boarding sound."
+    },
+    {
+      "id": 6,
+      "chapter": "Zürich · 6 / 6",
+      "clueTitle": "To the viewpoint",
+      "clueBody": "Walk the last stretch to the Uetliberg viewpoint and look out over the whole city and lake.",
+      "target": { "lat": 47.349527464126886, "lng": 8.492072653389231 },
+      "action": "show_clue",
+      "companion": "follow",
+      "glowColor": "#ffd25f",
+      "silly": 1,
+      "arrivalTitle": "The end of the tour",
+      "arrivalBody": "Zürich, the lake, and the Alps on a clear day. That's every core feature of the engine, in six short stages. Now go build your own.",
+      "arrivalImage": "/placeholder.svg"
+    }
+  ]
+}

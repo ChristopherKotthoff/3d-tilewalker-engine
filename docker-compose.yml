@@ -1,0 +1,14 @@
+services:
+  maps-walker:
+    build: .
+    ports:
+      - "5173:5173"
+    env_file:
+      - .env
+    volumes:
+      # Bind-mount source for hot-reload; keep the container's node_modules.
+      - .:/app
+      - /app/node_modules
+    # usePolling in vite.config.ts makes file-watching work across the mount.
+    stdin_open: true
+    tty: true

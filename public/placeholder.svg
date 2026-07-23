@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="240" viewBox="0 0 480 240">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8fb7d6"/><stop offset="1" stop-color="#dfeaf0"/>
+    </linearGradient>
+    <linearGradient id="lake" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6ea3b8"/><stop offset="1" stop-color="#3f6f82"/>
+    </linearGradient>
+  </defs>
+  <rect width="480" height="240" fill="url(#sky)"/>
+  <!-- distant alps -->
+  <polygon points="0,150 90,70 150,120 220,60 300,130 380,80 480,150 480,180 0,180" fill="#c7d6df"/>
+  <polygon points="180,90 220,60 260,95" fill="#eef4f7"/>
+  <polygon points="350,105 380,80 410,108" fill="#eef4f7"/>
+  <!-- lake -->
+  <rect y="180" width="480" height="60" fill="url(#lake)"/>
+  <!-- old-town rooftops -->
+  <rect x="60" y="120" width="60" height="60" fill="#b9906a"/>
+  <rect x="120" y="108" width="70" height="72" fill="#a97e58"/>
+  <polygon points="150,80 118,110 190,110" fill="#7c5a3c"/>
+  <rect x="300" y="112" width="64" height="68" fill="#b9906a"/>
+  <!-- Grossmünster-ish twin towers -->
+  <rect x="248" y="70" width="20" height="110" fill="#9c8f7d"/>
+  <rect x="272" y="70" width="20" height="110" fill="#9c8f7d"/>
+  <rect x="246" y="60" width="24" height="12" fill="#6f6455"/>
+  <rect x="270" y="60" width="24" height="12" fill="#6f6455"/>
+  <text x="240" y="222" font-family="Georgia, serif" font-size="20" fill="#f2f7fa" text-anchor="middle">Zürich</text>
+</svg>
