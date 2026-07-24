@@ -1,5 +1,7 @@
 # Tilewalker Engine
 
+![Tilewalker in motion: a character walking the streamed 3D city](public/tilewalker_hero.gif)
+
 *A browser game engine for walking a character through a real, streamed 3D city.*
 
 Walk a rigged 3D character through a **real, live city**: Google's Photorealistic
@@ -10,8 +12,6 @@ and step into teleport vortexes that warp you across the map. The whole game
 
 The bundled demo is a short six-stage walk through **Zürich** that shows off every
 engine feature once.
-
-![In-game screenshot: a character walking the streamed 3D city](public/screenshot.jpg)
 
 ## What it does
 
@@ -36,6 +36,8 @@ engine feature once.
 
 Built with Vite + TypeScript, Three.js / React Three Fiber, and
 [`3d-tiles-renderer`](https://github.com/NASA-AMMOS/3DTilesRendererJS).
+
+![In-game screenshot: a character walking the streamed 3D city](public/screenshot.jpg)
 
 ---
 
